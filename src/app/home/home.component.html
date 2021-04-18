@@ -1,3 +1,5 @@
 <div class="container">
-  HOME
+  <div *ngFor="let city of cities">
+    <app-weather [city]="city"></app-weather>
+  </div>
 </div>
