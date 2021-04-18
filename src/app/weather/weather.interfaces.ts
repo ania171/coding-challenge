@@ -2,11 +2,11 @@ export interface Weather {
   icon: string;
   temp: number;
   wind: number;
-  coord?: CityGeolocation;
+  coord?: CityCoords;
   dt?: number;
 }
 
-export interface CityGeolocation {
+export interface CityCoords {
   lon: number;
   lat: number;
 }

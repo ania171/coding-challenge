@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
-import {Weather} from './weather.interfaces';
+import { CityCoords, Weather } from './weather.interfaces';
 
 @Injectable()
 export class WeatherService {
@@ -21,7 +21,8 @@ export class WeatherService {
           icon: `http://openweathermap.org/img/w/${data.weather[0].icon}.png`,
           temp: data.main.temp,
           wind: data.wind.speed,
-          coord: data.coord
+          coord: data.coord,
+          city: data.name
         };
       })
     );
@@ -40,6 +41,14 @@ export class WeatherService {
         });
       })
     );
+  }
+
+  public getCityGeolocacion(city: string): Observable<CityCoords> {
+    return this.getWeatherForCity(city)
+      .pipe(map((data: any) => {
+        return data.coord;
+      }
+    ));
   }
 
   private convertTime(timeUTC: number): string {

@@ -1,14 +1,8 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <p><img src='{{weather?.icon}}' alt="{{city}}" /></p>
-      <p>City: {{ city }}</p>
-      <p>Average temperature: {{ weather?.temp }}</p>
-      <p>Wind strength: {{ weather?.wind }}</p>
-    </div>
-    <div class="col">
-      <app-hourly-weather [city]="city" [forecast]="forecast"></app-hourly-weather>
-    </div>
-    <hr/>
+<div class="row weather-row">
+  <div class="col">
+    <p><img src='{{weather?.icon}}' alt="{{city}}" /> {{ city }}</p>
+    <p>Average temperature: {{ weather?.temp }}</p>
+    <p>Wind strength: {{ weather?.wind }}</p>
+    <a [routerLink]="['/' + city.toLowerCase()]"> Hourly weather</a>
   </div>
 </div>
