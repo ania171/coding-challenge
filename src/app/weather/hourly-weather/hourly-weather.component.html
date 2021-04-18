@@ -1,0 +1,30 @@
+<div>
+  <div class="row">
+    <div class="col">
+      Icon
+    </div>
+    <div class="col">
+      Time
+    </div>
+    <div class="col">
+      Temperature
+    </div>
+    <div class="col">
+      Wind
+    </div>
+  </div>
+  <div class="row" *ngFor="let weather of forecast">
+    <div class="col">
+      <img src='{{weather.icon}}' alt="{{city}}" />
+    </div>
+    <div class="col">
+      {{ weather.dt }}
+    </div>
+    <div class="col">
+      {{ weather.temp }}
+    </div>
+    <div class="col">
+      {{ weather.wind }}
+    </div>
+  </div>
+</div>

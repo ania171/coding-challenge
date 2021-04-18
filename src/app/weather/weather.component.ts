@@ -13,6 +13,7 @@ export class WeatherComponent implements OnInit {
   @Input() public city: string;
 
   public weather: Weather;
+  public forecast: Weather[];
 
   constructor(
     private weatherService: WeatherService
@@ -26,7 +27,7 @@ export class WeatherComponent implements OnInit {
         this.weatherService.getHourForecast(this.weather.coord.lon, this.weather.coord.lat)
           .pipe(take(1))
           .subscribe((forecastData) => {
-            console.log('forecastData', forecastData);
+            this.forecast = forecastData;
           });
       });
   }
