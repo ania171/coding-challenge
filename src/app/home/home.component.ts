@@ -8,7 +8,7 @@ export class HomeComponent {
   public cities = [
     'Szczecin',
     'Warszawa',
-    'Kraków',
+    'Krakow',
     'Berlin',
     'Amsterdam'
   ];
